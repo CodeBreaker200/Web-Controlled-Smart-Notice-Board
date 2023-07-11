@@ -1,0 +1,41 @@
+#!/bin/bash
+
+# Directory path where the files are located
+directory="/path/to/files"
+
+# Change to the specified directory
+cd "$directory"
+
+# Loop indefinitely
+while true; do
+    # Find all new files in the directory
+    new_files=$(find . -type f -newermt "1 minute ago")
+
+    # Check if there are any new files
+    if [[ -n $new_files ]]; then
+        # Convert PPT and PDF files to images
+        converted_files=""
+        for file in $new_files; do
+            if [[ $file == *.ppt || $file == *.pptx ]]; then
+                pdf_file="${file%.*}.pdf"
+                converted_file="${file%.*}.png"
+                unoconv -f pdf "$file"
+                convert "$pdf_file" "$converted_file"
+                converted_files+=" $converted_file"
+                rm "$pdf_file"
+            elif [[ $file == *.pdf ]]; then
+                converted_file="${file%.*}.png"
+                convert "$file" "$converted_file"
+                converted_files+=" $converted_file"
+            else
+                converted_files+=" $file"
+            fi
+        done
+
+        # Display the new files as a slideshow
+        feh -FZzr -D 3 -R 1 --auto-rotate --start-at $converted_files
+    fi
+
+    # Wait for 1 minute before checking for new files again
+    sleep 60
+done
