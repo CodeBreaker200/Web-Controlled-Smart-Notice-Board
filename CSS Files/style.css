@@ -1,0 +1,112 @@
+html{
+    font-size: 62.5%;
+}
+      /* code for resposive header */
+@media(max-width:99.8rem) {
+    html{
+        font-size: 55%;
+    }
+}
+
+@media(max-width:76.8rem) {
+    html{
+        font-size: 45%;
+    }
+}
+body {
+	background: #1690A7;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+	flex-direction: column;
+}
+
+*{
+	font-family: sans-serif;
+	box-sizing: border-box;
+}
+
+form {
+	width: 50.0rem;
+	border: .2rem solid #ccc;
+	padding: 3.0rem;
+	background: #fff;
+	border-radius: 1.5rem;
+}
+
+h2 {
+	text-align: center;
+	margin-bottom: 4.0rem;
+}
+
+input {
+	display: block;
+	border: .2rem solid #ccc;
+	width: 95%;
+	padding: 1.0rem;
+	margin: 1.0rem auto;
+	border-radius: .5rem;
+}
+label {
+	color: #888;
+	font-size: 1.8rem;
+	padding: 1.0rem;
+}
+
+button {
+	float: right;
+	background: #555;
+	padding: 1.0rem 1.5rem;
+	color: #fff;
+	border-radius: .5rem;
+	margin-right: 1.0rem;
+	border: none;
+}
+button:hover{
+	opacity: .7;
+}
+.error {
+   background: #F2DEDE;
+   color: #A94442;
+   padding: 1.0rem;
+   width: 95%;
+   border-radius: .5rem;
+   margin: 2.0rem auto;
+}
+
+.success {
+   background: #D4EDDA;
+   color: #40754C;
+   padding: 1.0rem;
+   width: 95%;
+   border-radius: .5rem;
+   margin: 2.0rem auto;
+}
+
+h1 {
+	text-align: center;
+	color: #fff;
+}
+
+.ca {
+	font-size: 1.4rem;
+	display: inline-block;
+	padding: 1.0rem;
+	text-decoration: none;
+	color: #444;
+}
+.ca:hover {
+	text-decoration: underline;
+} 
+
+/* CRUD OPERATION */
+
+.main{
+    background-color: gainsboro;
+    margin-top: 1.0rem;
+    max-width: 4.0rem;
+}
+input{
+    margin: 1.0rem;
+}
